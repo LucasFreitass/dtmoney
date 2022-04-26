@@ -1,6 +1,15 @@
 import { Container } from "./styles";
+import { useEffect } from "react";
+import { api } from "../../services/api";
 
 export function TransactionsTable () {
+
+    useEffect(() => {
+        api.get('transactions') // get pois esou buscando uma informação
+        .then(response => console.log(response.data)) 
+        // usando o axios, api.get e tal não precisa mais converter as informações pra json toda vez, ele já faz isso.
+    }, []);
+
     return (
         <Container>
             <table>
